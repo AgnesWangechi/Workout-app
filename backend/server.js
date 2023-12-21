@@ -17,6 +17,11 @@ app.get('/',(req,res) =>{
     res.json({mssg: "Welcome to the app"}) // This is to send a response back to the browser
 })
 
+//middleware 
+app.use((req,res, next)=>{
+    console.log(req.path,req.method)
+    next()
+})
 //Listen for requests
 app.listen(process.env.PORT, () =>{
     console.log('listening on port' ,process.env.PORT)
